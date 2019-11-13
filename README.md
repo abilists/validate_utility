@@ -1,5 +1,7 @@
 # validate_utility library for Abilists
 --------------------------------------------------
+[![Build Status](https://travis-ci.org/abilists/validate_utility.svg?branch=master)](https://travis-ci.org/abilists/validate_utility)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/abilists/validate_utility)
 
 validate_utility is to validate parameter in Server Side. It is very sample so you can easily use it to your particular web project.
 
