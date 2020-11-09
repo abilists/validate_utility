@@ -3,9 +3,6 @@ package io.utility.validate;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import javax.validation.Validation;
-import javax.validation.Validator;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,8 +10,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ValidateTest {
-	
-	static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -66,6 +61,12 @@ public class ValidateTest {
 
 		try {
 
+			if(ValidateUtility.validateCharacters("license01")) {
+				System.out.println("true");
+			} else {
+				System.out.println("false");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
