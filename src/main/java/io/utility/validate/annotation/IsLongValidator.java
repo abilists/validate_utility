@@ -5,10 +5,10 @@ import javax.validation.ConstraintValidatorContext;
 
 import io.utility.validate.ValidateUtility;
 
-public class IsLongValidator implements ConstraintValidator<IsInteger, String>{
+public class IsLongValidator implements ConstraintValidator<IsLong, String>{
 
 	@Override
-	public void initialize(IsInteger constraintAnnotation) {
+	public void initialize(IsLong constraintAnnotation) {
 	}
 
 	@Override
@@ -18,11 +18,22 @@ public class IsLongValidator implements ConstraintValidator<IsInteger, String>{
             return false;
         }
 
-        if(ValidateUtility.isNumber(inputData) || inputData.equals(".")) {
-        	return true;
+        boolean blnFalse = false;
+        char[] sChar = inputData.toCharArray();
+        for (char ch : sChar) {
+        	if(ValidateUtility.isNumber(String.valueOf(ch)) || (".").equals(String.valueOf(ch))) {
+        		// yes
+        	} else {
+        		blnFalse = true;
+        		break;
+        	}
         }
 
-        return false;
+        if(blnFalse) {
+        	return false;
+        }
+
+        return true;
 	}
 
 }
