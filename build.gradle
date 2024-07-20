@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-version = '0.0.6'
+version = '0.0.7'
 
 // gradle publish
 publishing {
@@ -55,7 +55,7 @@ dependencies {
 	runtimeOnly 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 	implementation 'ch.qos.logback:logback-core:' + logbackVersion
 	implementation 'ch.qos.logback:logback-classic:' + logbackVersion
-	implementation 'javax.validation:validation-api:1.1.0.Final'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
 	implementation 'org.springframework:spring-web:' + springVersion
 	testImplementation "junit:junit:4.+"
 }
