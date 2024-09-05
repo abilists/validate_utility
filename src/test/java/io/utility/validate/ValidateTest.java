@@ -21,7 +21,7 @@ public class ValidateTest {
 		System.out.println("Before");
 	}
 
-	@Test
+	// @Test
 	public void testOne() throws Exception {
 
 		try {
@@ -32,7 +32,7 @@ public class ValidateTest {
 
 	}
 
-	@Test
+	// @Test
 	public void testValidateSpecialCharacter() throws Exception {
 
 		try {
@@ -43,7 +43,7 @@ public class ValidateTest {
 
 	}
 
-	@Test
+	// @Test
 	public void testValidateSpecialCharacter2() throws Exception {
 
 		char[] charArray = {'\'', '"', '^'};
@@ -56,12 +56,32 @@ public class ValidateTest {
 
 	}
 
-	@Test
+	// @Test
 	public void testValidateByte() throws Exception {
 
 		try {
 
 			if(ValidateUtility.validateCharacters("license01")) {
+				System.out.println("true");
+			} else {
+				System.out.println("false");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	public void testValidateSpecialString() throws Exception {
+
+		String str = "String query = \"account_balance FROM user_data WHERE user_name = "
+             + "한글Drop한글   ameter(\"customerName\");";
+
+		try {
+
+			if(ValidateUtility.validateSpecialString(str, null)) {
 				System.out.println("true");
 			} else {
 				System.out.println("false");

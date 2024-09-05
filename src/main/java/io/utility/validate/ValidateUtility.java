@@ -1,5 +1,6 @@
 package io.utility.validate;
 
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +15,9 @@ public class ValidateUtility {
 	
 	public static char[] CHR_ARRAY = {'<', '>', '"', '\'', '^'};
 	public static char[] CHR_ARRAY2 = {'<', '>', '"', '^'};
+	public static String[] STR_JS_ARRAY = {"JAVASCRIPT"};
+	public static String[] STR_SQL_ARRAY = {"SELECT", "DROP", "UPDATE", "DELETE", "ALTER", "UNION"};
+	public static String[] STR_JS_SQL_ARRAY = {"JAVASCRIPT", "SELECT", "DROP", "UPDATE", "DELETE", "ALTER", "UNION"};
 
 	public static boolean isExtenstionName(String str, String ext) {
 
@@ -98,6 +102,34 @@ public class ValidateUtility {
 
         for (char ch : specialCharArray) {
         	if(s.contains(String.valueOf(ch))) {
+        		return false;
+        	}
+        }
+
+        return true;
+    }
+    
+    /**
+     * Validate the inputed String with user's set special character.
+     * 
+     * @param str is target string
+     * @return
+     */
+    public static boolean validateSpecialString(String str, String[] specialStringArray) {
+
+    	if (str == null || str.trim().isEmpty()) {
+            return false;
+        }
+
+    	// Set the default special string.
+    	if(specialStringArray == null) {
+    		specialStringArray = ValidateUtility.STR_JS_SQL_ARRAY;
+    	}
+
+    	// Set uppercase all Aphabet
+    	String strUpper = str.toUpperCase();
+        for (String ssa : specialStringArray) {
+        	if(strUpper.contains(ssa)) {
         		return false;
         	}
         }
